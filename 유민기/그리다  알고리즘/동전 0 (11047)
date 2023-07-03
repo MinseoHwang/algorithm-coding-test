@@ -1,5 +1,5 @@
 import sys
-n,k = map(int, sys.stdin.readline().split())  # 동전의 개수 n과 만들어야 할 금액 k를 입력받습니다.
+n,k = map(int, sys.stdin.readline().split())  # 동전의 개수 n과 동전의 합 k를 입력받습니다.
 coin = []
 count = 0
 
