@@ -1,7 +1,7 @@
 #회의실 배정(1931) 이 문제는 가장 빨리 끝나는 회의 시간으로 오름차순 정렬하여 겹치지 않는 회의들을 정렬된 순서에 따라 카운트 하면 되는 문제이다.
 #입력
 import sys
-N = int(input())
+N = int(sys.stdin.readline())
 time = []
 for i in range(N):
     start, end = map(int, sys.stdin.readline().split())
