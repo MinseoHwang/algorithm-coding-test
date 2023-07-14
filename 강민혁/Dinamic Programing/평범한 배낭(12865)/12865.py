@@ -22,8 +22,8 @@ for i in range(1, N+1): # 물건 수
             kn[i][j] = max(kn[i-1][j], kn[i-1][j-w] + v)
 
 
-print(p)
-print(kn)
+# print(p)
+# print(kn)
 print(kn[N][K])
 
 
