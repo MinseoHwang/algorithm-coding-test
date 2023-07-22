@@ -12,10 +12,10 @@ dy = [1, -1, 0, 0]
 
 def bfs():
     q = deque()
-    visit = [[[0] * 2 for _ in range(m)] for _ in range(n)]
+    visited = [[[0] * 2 for _ in range(m)] for _ in range(n)]
 
     q.append([Hx - 1, Hy - 1, 1, 0]) 
-    visit[Hx - 1][Hy - 1][1] = 1
+    visited[Hx - 1][Hy - 1][1] = 1
 
     while q:
         x, y, magic, cost = q.popleft()
@@ -27,14 +27,15 @@ def bfs():
             nx, ny = x + dx[i], y + dy[i]
 
             if 0 <= nx < n and 0 <= ny < m:
-                if visit[nx][ny][magic]:
+                if visited[nx][ny][magic]:
                     continue
 
                 if magic and board[nx][ny]:
-                    visit[nx][ny][0] = 1
+                    visited[nx][ny][0] = 1
                     q.append([nx, ny, 0, cost + 1])
                 elif not board[nx][ny]:
-                    visit[nx][ny][magic] = 1
+                    
+                    visited[nx][ny][magic] = 1
                     q.append([nx, ny, magic, cost + 1])
 
     return -1
