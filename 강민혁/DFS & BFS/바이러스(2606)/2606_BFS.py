@@ -25,4 +25,4 @@ while q:
             q.append(i)
             visited[i] = 1
 
-print(sum(visited)-1)
+print(sum(visited)-1) # 처음 감염된 1(컴퓨터)는 제외
