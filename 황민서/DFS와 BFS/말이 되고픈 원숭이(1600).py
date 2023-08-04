@@ -30,11 +30,8 @@ def bfs():
                 if 0 <= ny < h and 0 <= nx < w:
                     if visited[ny][nx][horse]:
                         continue
-                    if horse and board[ny][nx]:
+                    if horse and not board[ny][nx]:
                         visited[ny][nx][horse-1] = 1
-                        q.append([ny, nx, horse-1, cost + 1])
-                    elif not board[ny][nx]:
-                        visited[ny][nx][horse] = 1
                         q.append([ny, nx, horse-1, cost + 1])
             
         for i in range(4):
@@ -43,11 +40,7 @@ def bfs():
             if 0 <= ny < h and 0 <= nx < w:
                 if visited[ny][nx][horse]:
                     continue
-
-                if horse and board[ny][nx]:
-                    visited[ny][nx][horse-1] = 1
-                    q.append([ny, nx, 0, cost + 1])
-                elif not board[ny][nx]:
+                if not board[ny][nx]:
                     visited[ny][nx][horse] = 1
                     q.append([ny, nx, horse, cost + 1])
 

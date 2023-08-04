@@ -1,4 +1,6 @@
 from collections import deque
+dx = [0, 0, 1, -1]
+dy = [1, -1, 0, 0]
 
 m, n = map(int, input().split())
 
@@ -6,12 +8,9 @@ board = []
 for i in range(n):
     board.append(list(map(int, input().split())))
 
-def bfs(y, x, board):
-    dx = [0, 0, 1, -1]
-    dy = [1, -1, 0, 0]
 
-    queue = deque()
-    queue.append((y, x))
+
+def bfs():
     while queue:
         y, x = queue.popleft()
         
@@ -20,14 +19,19 @@ def bfs(y, x, board):
 
             if 0 > ny or n <= ny or 0 > nx or m <= nx:
                 continue
+            
             if board[ny][nx] == 0:
                 board[ny][nx] = board[y][x] + 1
                 queue.append((ny, nx))
 
+queue = deque()
+
 for i in range(n):
         for j in range(m):
             if board[i][j] == 1:
-                 bfs(i, j, board)
+                 queue.append((i, j))
+
+bfs()
 
 max_cnt = 0
 for i in range(n):
