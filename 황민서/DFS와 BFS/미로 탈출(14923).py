@@ -34,7 +34,6 @@ def bfs():
                     visited[nx][ny][0] = 1
                     q.append([nx, ny, 0, cost + 1])
                 elif not board[nx][ny]:
-                    
                     visited[nx][ny][magic] = 1
                     q.append([nx, ny, magic, cost + 1])
 
